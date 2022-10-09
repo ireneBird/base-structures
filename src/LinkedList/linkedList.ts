@@ -1,6 +1,6 @@
 import Node from './node';
 
-export class DoubleLinkedList<T> {
+export default class DoubleLinkedList<T> {
 
   protected head: Node<T> | null = null;
   protected tail: Node<T> | null = null;
@@ -17,6 +17,10 @@ export class DoubleLinkedList<T> {
 
   get last(): Node<T> | null {
     return this.tail;
+  }
+
+  get isEmpty(): boolean {
+    return this.lengthStore == 0;
   }
 
   [Symbol.iterator](): IterableIterator<T> {
@@ -72,6 +76,46 @@ export class DoubleLinkedList<T> {
     return deletedTail
   }
 
+  shift(): Node<T> | null {
+    if (this.lengthStore === 0) return null;
+
+    const firstNode = this.head;
+
+    if (firstNode === null) return null;
+
+    this.head = firstNode.next;
+
+    if (this.head === null) {
+      this.clear();
+      return firstNode;
+    }
+
+    this.lengthStore--;
+
+    firstNode.next = null
+    return firstNode;
+  }
+
+  unshift(...data: T[]): number {
+    data.forEach((d) => {
+      const node = new Node(d);
+
+      if (this.first) {
+        this.first.previous = node;
+      }
+
+      if (this.tail == null) {
+        this.tail = node
+      }
+
+      node.next = this.first;
+      this.head = node;
+      this.lengthStore++;
+
+    })
+
+    return this.lengthStore;
+  }
 
   toArray(): T[] {
     const nodes = [];
@@ -159,5 +203,4 @@ export class DoubleLinkedList<T> {
 
     return this;
   }
-
 }

@@ -1,0 +1,1 @@
+export type Fn = (value: { [ket: string]: any }) => string;
