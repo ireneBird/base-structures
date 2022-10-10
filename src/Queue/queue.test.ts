@@ -4,7 +4,7 @@ describe('Queue work', function () {
 
   it("should create empty queue", () => {
     const queue = new Queue();
-    expect([...queue.values()]).toEqual([]);
+    expect(queue.isEmpty()).toEqual(true);
   });
 
   it("should create empty queue, add elements and check method popFront", () => {

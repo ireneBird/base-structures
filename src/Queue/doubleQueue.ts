@@ -11,11 +11,9 @@ export default class DoubleQueue<T> extends Queue<T> implements InnerDoubleQueue
     throw new Error('Method not implemented.');
   }
 
-
   pushFront(...data: T[]): number {
     return this.queue.unshift(...data);
   }
-
 
   popBack(): Node<T> | null {
     return this.queue.pop();
