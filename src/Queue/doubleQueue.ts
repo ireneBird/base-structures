@@ -8,7 +8,7 @@ export default class DoubleQueue<T> extends Queue<T> implements InnerDoubleQueue
   }
 
   [Symbol.iterator](): IterableIterator<T> {
-    throw new Error('Method not implemented.');
+    return this.queue.values();
   }
 
   pushFront(...data: T[]): number {
