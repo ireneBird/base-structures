@@ -1,5 +1,5 @@
 import Node from './node';
-import LinkedList from '../LinkedList';
+import { LinkedList } from '../LinkedList';
 
 export default class Queue<T>{
   protected queue: LinkedList<T>;
