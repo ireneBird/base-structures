@@ -54,14 +54,12 @@ export default class DynamicArray<T>{
 
         if (data) {
           for (let j = curret; j < lenght; j++) {
-
             for (let i = 0; i < capacity; i++) {
               curret++
               return { done: false, value: data.value[i] }
             }
           }
         }
-
 
         return { done: true, value: undefined };
 
