@@ -1,6 +1,8 @@
 # Базовые структуры
+<br>
 
 ## Двусторонний двусвязный список
+<br>
 
 ```
   const linkedList = new DoubleLinkedList();
@@ -13,6 +15,7 @@
 
   console.log(linkedList) // [2, 1, 3]
 ```
+<br>
 
 ## Очередь на основе связанного списка
 
@@ -30,6 +33,7 @@
   console.log(queue.first?.value); // my
 
 ```
+<br>
 
 ## Двусторонняя очередь
 
@@ -43,6 +47,8 @@
   console.log(queue.popFront()); // 1
 
 ```
+<br>
+
 ##  Cтек на основе массива фиксированной длины
 
 ```
@@ -58,6 +64,7 @@
   console.log(stack.pop()); // 11
   console.log(stack.pop()); // 10
 ```
+<br>
 
 ##  Структура
 
@@ -65,7 +72,7 @@
   const structure = new Structure(['name', 'gender']);
 
   structure.set('name', 'Olivia');
-  
+
   console.log(structure.get('name')); // Olivia
 
 ```
