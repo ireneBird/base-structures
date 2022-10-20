@@ -7,6 +7,12 @@ interface HashValue<T> {
 
 type HashItem<T> = LinkedList<HashValue<T>>
 
+const isPrime = (num: number) => {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+    if (num % i === 0) return false;
+  return num > 1;
+}
+
 export default class HashMap<T>{
   protected buffer: Array<HashItem<T>>;
   protected capacity: number;
@@ -14,8 +20,13 @@ export default class HashMap<T>{
 
 
   constructor(size: number = 31) {
-    this.buffer = new Array(size);
+    if (!isPrime(size)) {
+      throw new Error('Need prime number for capacity');
+    }
+
     this.capacity = size;
+    this.buffer = new Array(size);
+
   }
 
   private hashFunc(key: unknown, base: number = 10) {
@@ -52,13 +63,12 @@ export default class HashMap<T>{
 
   public clear() {
     this.buffer = new Array(this.capacity);
+    this.lenghtStore = 0;
   }
 
-  private findElement(key: any): HashItem<T> | undefined {
-    const hashKey = this.hashFunc(key);
-    const list = this.buffer[hashKey];
+  //TODO: create keys()
+  public keys() {
 
-    return list || undefined;
+
   }
-
 }
