@@ -34,6 +34,7 @@ export default class DynamicArray<T>{
     return this.values();
   }
 
+  // TODO: Create method values()
   public values(): IterableIterator<T> {
     const capacity = this.capacity;
     const lenght = this.lengthStore;
